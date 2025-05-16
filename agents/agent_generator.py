@@ -4,6 +4,9 @@ from langchain_openai import ChatOpenAI
 import importlib
 from langchain.tools import Tool
 import sys
+from tools.math import add,multiply,divide
+from tools.cep import consulta_cep
+from config.settings import OPENAI_API_KEY,MODEL
 
 def generic_agent(agent_configs: List[Dict[str, Any]]) -> Dict[str, Any]:
     """
@@ -16,12 +19,12 @@ def generic_agent(agent_configs: List[Dict[str, Any]]) -> Dict[str, Any]:
         Dicionário com os agentes criados, usando o nome do agente como chave
     """
     agents = {}
-    
+    resume ={}
     for config in agent_configs:
         # Extrair informações da configuração
         agent_name = config.get("name", config.get("agent", "unnamed_agent"))
-        model_name = config.get("model", "gpt-4o")
-        api_key = config.get("api_key", "")
+        model_name = config.get(MODEL, "gpt-4o")
+        api_key = config.get("api_key", OPENAI_API_KEY)
         prompt = config.get("prompt", "")
         tool_names = config.get("tools", [])  # Lista de nomes de ferramentas (strings)
         
@@ -86,5 +89,6 @@ def generic_agent(agent_configs: List[Dict[str, Any]]) -> Dict[str, Any]:
         
         # Adicionar ao dicionário de agentes
         agents[agent_name] = agent
+        resume[agent_name] = config.get("agent_resume", "")
     
-    return agents
+    return agents,resume

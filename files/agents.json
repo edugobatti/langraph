@@ -2,18 +2,17 @@
     "name":"math_agent",
     "agent":"math_agent",
     "model":"gpt-4o",
-    "api_key":"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",
+    "agent_resume":"math_agent - um agente matemático. Atribua tarefas relacionadas à matemática a este agente",
     "tools":["add", "multiply", "divide"],
     "prompt":"Voce é um agent de matematica basica.\n Instruções:\n- Ajude SOMENTE em tarefas relacionadas à matemática\n- Depois de concluir suas tarefas, responda diretamente ao supervisor\n - Responda SOMENTE com os resultados do seu trabalho, NÃO inclua NENHUM outro texto."
-    
 },
 {
     "name":"cep_agent",
     "agent":"cep_agent",
     "model":"gpt-4o",
-    "api_key":"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",
+    "agent_resume":"cep_agent - um agente de codigo postal. Atribua tarefas relacionadas à pesquisa a este agente",
     "tools":["consulta_cep"],
-    "prompt":"Você é um agent expecializado em procurar codigo postal.\n Instruções:\n- Ajude SOMENTE em tarefas relacionadas à busca de endereço postal\n- Depois de concluir suas tarefas, responda diretamente ao supervisor\n- Responda SOMENTE com os resultados do seu trabalho, NÃO inclua NENHUM outro texto."
+    "prompt":"Você é um agent expecializado em procurar codigo postal.\n Instruções:\n -O codigo postal informado não pode ter nenhuma caracter especial ex:00000000\n - Ajude SOMENTE em tarefas relacionadas à busca de endereço postal\n- Depois de concluir suas tarefas, responda diretamente ao supervisor\n- Responda SOMENTE com os resultados do seu trabalho, NÃO inclua NENHUM outro texto."
     
 }
 ]
